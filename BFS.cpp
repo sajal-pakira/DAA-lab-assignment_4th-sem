@@ -13,6 +13,24 @@ void bfs(int v, int n)
     {
         visited[i] = 0;
     }
+    q.push(v);
+    visited[v] = 1;
+    cout << "BFS traversal - " << endl;
+    while (!q.empty())
+    {
+        int u = q.front();
+        q.pop();
+
+        cout << u << " ";
+        for (int w = 0; w < n; w++)
+        {
+            if (g[u][w] == 1 && visited[w] == 0)
+            {
+                q.push(w);
+                visited[w] = 1;
+            }
+        }
+    }
 }
 
 int main()
@@ -37,4 +55,5 @@ int main()
     cout << "Enter the starting vertex -  ";
     cin >> v;
     bfs(v, n);
+    return 0;
 }
