@@ -3,6 +3,17 @@ using namespace std;
 
 int arr[100];
 
+int hPartition(int i, int j)
+{
+}
+
+void quickSort(int i, int j)
+{
+    int pvt = hPartition(i, j);
+    quickSort(i, pvt - 1);
+    quickSort(pvt + 1, j);
+}
+
 int main()
 {
     cout << "Enter size of array -  ";
@@ -12,4 +23,6 @@ int main()
     {
         cin >> arr[i];
     }
+    quickSort(0, n - 1);
+    return 0;
 }
