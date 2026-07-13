@@ -3,6 +3,13 @@ using namespace std;
 
 int arr[100];
 
+void swap(int arr[], int i, int j)
+{
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
 int hPartition(int low, int high)
 {
     int i = low, j = high + 1;
@@ -21,6 +28,7 @@ int hPartition(int low, int high)
             swap(arr, i, j);
     }
     swap(arr, low, j);
+    return j;
 }
 
 void quickSort(int i, int j)
