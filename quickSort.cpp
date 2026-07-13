@@ -3,15 +3,34 @@ using namespace std;
 
 int arr[100];
 
-int hPartition(int i, int j)
+int hPartition(int low, int high)
 {
+    int i = low, j = high + 1;
+    int pivot = arr[low];
+    while (i < j)
+    {
+        do
+        {
+            i += 1;
+        } while (arr[i] <= pivot && i <= j);
+        do
+        {
+            j += 1;
+        } while (arr[j] > pivot);
+        if (i < j)
+            swap(arr, i, j);
+    }
+    swap(arr, low, j);
 }
 
 void quickSort(int i, int j)
 {
-    int pvt = hPartition(i, j);
-    quickSort(i, pvt - 1);
-    quickSort(pvt + 1, j);
+    if (i < j)
+    {
+        int pvt = hPartition(i, j);
+        quickSort(i, pvt - 1);
+        quickSort(pvt + 1, j);
+    }
 }
 
 int main()
