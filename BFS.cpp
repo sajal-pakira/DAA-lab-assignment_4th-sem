@@ -20,7 +20,6 @@ void bfs(int v, int n)
     {
         int u = q.front();
         q.pop();
-
         cout << u << " ";
         for (int w = 0; w < n; w++)
         {
@@ -31,6 +30,7 @@ void bfs(int v, int n)
             }
         }
     }
+    cout << endl;
 }
 
 int main()
