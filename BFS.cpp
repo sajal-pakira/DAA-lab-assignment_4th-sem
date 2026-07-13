@@ -36,7 +36,7 @@ void bfs(int v, int n)
 int main()
 {
     fstream file;
-    file.open("DAA_ASSIGNMEN_LIST_pages-to-jpg-0001.jpg", ios::in);
+    file.open("graph.txt", ios::in);
     if (!file)
     {
         cout << "Error in opening file!!" << endl;
