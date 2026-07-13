@@ -6,6 +6,10 @@ using namespace std;
 int g[100][100];
 int visited[100];
 
+void bfs(int v, int n)
+{
+}
+
 int main()
 {
     fstream file;
@@ -24,4 +28,8 @@ int main()
             file >> g[i][j];
         }
     }
+    int v;
+    cout << "Enter the starting vertex -  ";
+    cin >> v;
+    bfs(v, n);
 }
