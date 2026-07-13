@@ -19,10 +19,10 @@ int hPartition(int low, int high)
         do
         {
             i += 1;
-        } while (arr[i] <= pivot && i <= j);
+        } while (arr[i] < pivot && i <= j);
         do
         {
-            j += 1;
+            j -= 1;
         } while (arr[j] > pivot);
         if (i < j)
             swap(arr, i, j);
@@ -46,10 +46,16 @@ int main()
     cout << "Enter size of array -  ";
     int n;
     cin >> n;
+    cout << "Enter elements -  " << endl;
     for (int i = 0; i < n; i++)
     {
         cin >> arr[i];
     }
     quickSort(0, n - 1);
+    cout << "After sorting -  " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
     return 0;
 }
