@@ -54,7 +54,7 @@ void dfs()
         visited[i] = 0;
     }
     s.push(v);
-    visited[v] = 0;
+    visited[v] = 1;
     cout << "DFS traversal -  ";
     while (!s.empty())
     {
@@ -68,7 +68,7 @@ void dfs()
             if (visited[w] == 0)
             {
                 s.push(w);
-                visited[w] = 0;
+                visited[w] = 1;
             }
             temp = temp->next;
         }
@@ -127,4 +127,7 @@ int main()
     }
     cout << "Enter starting vertex -  ";
     cin >> v;
+    bfs();
+    dfs();
+    return 0;
 }
