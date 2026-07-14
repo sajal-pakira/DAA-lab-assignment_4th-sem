@@ -14,11 +14,15 @@ int e;
 int v;
 
 Node *adjList[100] = {NULL};
-int visited[100] = {0};
+int visited[100];
 
 void bfs()
 {
     queue<int> q;
+    for (int i = 0; i < n; i++)
+    {
+        visited[i] = 0;
+    }
     q.push(v);
     visited[v] = 1;
     cout << "BFS traversal -  ";
@@ -35,6 +39,36 @@ void bfs()
             {
                 q.push(w);
                 visited[w] = 1;
+            }
+            temp = temp->next;
+        }
+    }
+    cout << endl;
+}
+
+void dfs()
+{
+    stack<int> s;
+    for (int i = 0; i < n; i++)
+    {
+        visited[i] = 0;
+    }
+    s.push(v);
+    visited[v] = 0;
+    cout << "DFS traversal -  ";
+    while (!s.empty())
+    {
+        int u = s.top();
+        s.pop();
+        cout << u << " ";
+        Node *temp = adjList[u];
+        while (temp != NULL)
+        {
+            int w = temp->vertex;
+            if (visited[w] == 0)
+            {
+                s.push(w);
+                visited[w] = 0;
             }
             temp = temp->next;
         }
