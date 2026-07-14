@@ -7,6 +7,34 @@ using namespace std;
 vector<int> adj[100];
 int visited[100];
 
+void DFS(int v, int n)
+{
+    stack<int> s;
+    for (int i = 0; i < n; i++)
+    {
+        visited[i] = 0;
+    }
+    s.push(v);
+    visited[v] = 1;
+    cout << "DFS traversal --  " << endl;
+    while (!s.empty())
+    {
+        int u = s.top();
+        s.pop();
+        cout << u << " ";
+        for (int i = 0; i < adj[u].size(); i++)
+        {
+            int w = adj[u][i];
+            if (visited[w] == 0)
+            {
+                s.push(w);
+                visited[w] = 1;
+            }
+        }
+    }
+    cout << endl;
+}
+
 int main()
 {
     int n, e;
