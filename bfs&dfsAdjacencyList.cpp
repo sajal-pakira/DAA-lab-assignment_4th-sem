@@ -14,8 +14,37 @@ int e;
 Node *adjList[100] = {NULL};
 int visited[100] = {0};
 
-void insertEdge(int u,int j){
-    
+void insertEdge(int u, int v)
+{
+    Node *curr1 = new Node;
+    curr1->vertex = v;
+    curr1->next = NULL;
+    if (adjList[u] == NULL)
+    {
+        adjList[u] = curr1;
+    }
+    else
+    {
+        Node *temp = adjList[u];
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = curr1;
+    }
+    Node *curr2 = new Node;
+    curr2->vertex=u;
+    curr2->next=NULL;
+    if(adjList[v]==NULL){
+        adjList[v]=curr2;
+    }
+    else{
+        Node* temp=adjList[v];
+        while(temp->next!=NULL){
+            temp=temp->next;
+        }
+        temp->next=curr2;
+    }
 }
 
 int main()
@@ -29,6 +58,6 @@ int main()
     {
         int u, v;
         cin >> u >> v;
-        insertEdge(u,v);
+        insertEdge(u, v);
     }
 }
