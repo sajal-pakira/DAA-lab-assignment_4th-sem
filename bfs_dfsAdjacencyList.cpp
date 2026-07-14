@@ -11,6 +11,8 @@ struct Node
 
 int n;
 int e;
+int v;
+
 Node *adjList[100] = {NULL};
 int visited[100] = {0};
 
@@ -33,17 +35,20 @@ void insertEdge(int u, int v)
         temp->next = curr1;
     }
     Node *curr2 = new Node;
-    curr2->vertex=u;
-    curr2->next=NULL;
-    if(adjList[v]==NULL){
-        adjList[v]=curr2;
+    curr2->vertex = u;
+    curr2->next = NULL;
+    if (adjList[v] == NULL)
+    {
+        adjList[v] = curr2;
     }
-    else{
-        Node* temp=adjList[v];
-        while(temp->next!=NULL){
-            temp=temp->next;
+    else
+    {
+        Node *temp = adjList[v];
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
         }
-        temp->next=curr2;
+        temp->next = curr2;
     }
 }
 
@@ -54,10 +59,13 @@ int main()
     cout << "Enter number of edges -  ";
     cin >> e;
     cout << "Enter all edges (in <u v> form) " << endl;
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < e; i++)
     {
         int u, v;
         cin >> u >> v;
         insertEdge(u, v);
     }
+    cout << "Enter starting vertex -  ";
+    cin >> v;
+    
 }
