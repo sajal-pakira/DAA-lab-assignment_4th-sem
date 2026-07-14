@@ -16,6 +16,32 @@ int v;
 Node *adjList[100] = {NULL};
 int visited[100] = {0};
 
+void bfs()
+{
+    queue<int> q;
+    q.push(v);
+    visited[v] = 1;
+    cout << "BFS traversal -  ";
+    while (!q.empty())
+    {
+        int u = q.front();
+        q.pop();
+        cout << u << " ";
+        Node *temp = adjList[u];
+        while (temp != NULL)
+        {
+            int w = temp->vertex;
+            if (visited[w] == 0)
+            {
+                q.push(w);
+                visited[w] = 1;
+            }
+            temp = temp->next;
+        }
+    }
+    cout << endl;
+}
+
 void insertEdge(int u, int v)
 {
     Node *curr1 = new Node;
@@ -67,5 +93,4 @@ int main()
     }
     cout << "Enter starting vertex -  ";
     cin >> v;
-    
 }
