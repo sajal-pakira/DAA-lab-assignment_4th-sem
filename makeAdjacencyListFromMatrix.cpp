@@ -30,6 +30,27 @@ void insertEdge(int i, int j)
 
 void makeAdjacencyList()
 {
+    fstream file;
+    file.open("graph.txt", ios::in);
+    if (!file)
+    {
+        cout << "Error in opening file!!";
+        return;
+    }
+    int n;
+    file >> n;
+    int data;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            file >> data;
+            if (data == 1)
+            {
+                insertEdge(i, j);
+            }
+        }
+    }
 }
 
 int main()
