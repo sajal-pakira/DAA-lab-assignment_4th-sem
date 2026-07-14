@@ -8,6 +8,8 @@ struct Node
     Node *next;
 };
 
+int n;
+
 Node *adjList[100] = {NULL};
 
 void insertEdge(int i, int j)
@@ -37,7 +39,6 @@ void makeAdjacencyList()
         cout << "Error in opening file!!";
         return;
     }
-    int n;
     file >> n;
     int data;
     for (int i = 0; i < n; i++)
@@ -53,6 +54,24 @@ void makeAdjacencyList()
     }
 }
 
+void display()
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (adjList[i] != NULL)
+        {
+            cout << "Adjacenct vertices of vertex " << i << " : ";
+            Node *temp = adjList[i];
+            while (temp != NULL)
+            {
+                cout << temp->vertex << " ";
+                temp = temp->next;
+            }
+            cout << endl;
+        }
+    }
+}
 int main()
 {
+    
 }
