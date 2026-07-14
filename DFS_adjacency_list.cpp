@@ -50,4 +50,9 @@ int main()
         adj[u].push_back(v);
         adj[v].push_back(u);
     }
+    int v;
+    cout << "Enter starting vertex -  ";
+    cin >> v;
+    DFS(v, n);
+    return 0;
 }
