@@ -73,5 +73,7 @@ void display()
 }
 int main()
 {
-    
+    makeAdjacencyList();
+    display();
+    return 0;
 }
