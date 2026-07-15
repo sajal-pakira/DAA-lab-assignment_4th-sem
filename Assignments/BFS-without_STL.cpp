@@ -47,3 +47,15 @@ void bfs(int v, int n)
         }
     }
 }
+
+int main()
+{
+    cout << "Enter number of vertices -  ";
+    int n;
+    cin >> n;
+    cout << "Enter starting vertex -  ";
+    int v;
+    cin >> v;
+    bfs(v, n);
+    return 0;
+}
