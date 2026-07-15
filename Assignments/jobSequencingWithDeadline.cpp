@@ -76,6 +76,6 @@ int main()
             cout << jobId[i] << " ";
         }
     }
-    cout << "Maximum profit -  " << totalProfit << endl;
+    cout << "\nMaximum profit -  " << totalProfit << endl;
     return 0;
 }
