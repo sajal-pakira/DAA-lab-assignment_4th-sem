@@ -36,4 +36,20 @@ void rQuickSort(int arr[], int i, int j)
 int main()
 {
     srand(time(0));
+    int arr[100];
+    int n;
+    cout << "Enter size of array -  ";
+    cin >> n;
+    cout << "Enter elements - " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    rQuickSort(arr, 0, n - 1);
+    cout << "Sorted array -  ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    return 0;
 }
