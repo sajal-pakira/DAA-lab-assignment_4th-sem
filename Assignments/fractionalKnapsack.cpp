@@ -42,6 +42,7 @@ int main()
     }
 
     sortItems(n);
+
     float totalProfit = 0.0;
     for (int i = 0; i < n; i++)
     {
