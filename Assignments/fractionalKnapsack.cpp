@@ -42,4 +42,25 @@ int main()
     }
 
     sortItems(n);
+    float totalProfit = 0.0;
+    for (int i = 0; i < n; i++)
+    {
+        if (c == 0)
+            break;
+        if (items[i].weight <= c)
+        {
+            cout << "Take 100% of item " << i + 1 << endl;
+            c -= items[i].weight;
+            totalProfit += items[i].profit;
+        }
+        else
+        {
+            float fraction = (float)c / items[i].weight;
+            cout << "Take " << fraction * 100 << "% of item " << i + 1 << endl;
+            totalProfit += items[i].profit * fraction;
+            c = 0;
+        }
+    }
+    cout << "Maximum profit -  " << totalProfit << endl;
+    return 0;
 }
