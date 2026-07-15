@@ -17,6 +17,13 @@ void heapify(int arr[], int size, int i)
     }
 }
 
+void buildHeap(int arr[], int size)
+{
+    for (int i = size / 2; i > 0; i--)
+    {
+        heapify(arr, size, i);
+    }
+}
 
 int main()
 {
