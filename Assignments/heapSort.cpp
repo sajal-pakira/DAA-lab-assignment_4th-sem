@@ -35,4 +35,16 @@ int main()
     {
         cin >> arr[i];
     }
+    buildHeap(arr, n);
+    int size = n;
+    while (size > 1)
+    {
+        swap(arr[size], arr[1]);
+        size--;
+        heapify(arr, size, 1);
+    }
+    for (int i = 1; i <= n; i++)
+    {
+        cout << arr[i]<<" ";
+    }
 }
