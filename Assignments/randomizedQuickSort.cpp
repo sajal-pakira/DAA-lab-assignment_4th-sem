@@ -4,6 +4,25 @@
 
 using namespace std;
 
+int partition(int arr[], int st, int en)
+{
+    int pvtIdx = st + rand() % (en - st + 1);
+    swap(arr[pvtIdx], arr[en]);
+    int pivot = arr[en];
+    int idx = st - 1;
+    for (int j = st; j < en; j++)
+    {
+        if (arr[j] <= pivot)
+        {
+            idx++;
+            swap(arr[idx], arr[j]);
+        }
+    }
+    idx++;
+    swap(arr[en], arr[idx]);
+    return idx;
+}
+
 void rQuickSort(int arr[], int i, int j)
 {
     if (i < j)
