@@ -34,6 +34,21 @@ int pop()
 
 void dfsIterative(int v, int n)
 {
+    push(v);
+    visited[v] = 1;
+    while (!isEmpty)
+    {
+        int u = pop();
+        cout << u << " ";
+        for (int w = 0; w < n; w++)
+        {
+            if (graph[u][w] == 1 && visited[w] == 0)
+            {
+                push(w);
+                visited[w] = 0;
+            }
+        }
+    }
 }
 
 int main()
