@@ -19,6 +19,31 @@ void enqueue(int val)
     queue[++rear] = val;
 }
 
+int dequeue()
+{
+    if (front == -1 || front > rear)
+    {
+        cout << "Queue underflow!!";
+        return -1;
+    }
+    return queue[front++];
+}
+
 void bfs(int v, int n)
 {
+    enqueue(v);
+    visited[v] = 1;
+    while (front <= rear)
+    {
+        int u = dequeue();
+        cout << u << " ";
+        for (int w = 0; w < n; w++)
+        {
+            if (adj[u][w] == 1 && visited[w] == 0)
+            {
+                enqueue(w);
+                visited[w] = 1;
+            }
+        }
+    }
 }
